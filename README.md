@@ -1,3 +1,4 @@
 ### An elastic search app integrated with rails
 
-  rake db:create db:migrate
+ 
+>>>> rake db:create db:migrate
