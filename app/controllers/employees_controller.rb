@@ -62,14 +62,23 @@ class EmployeesController < ApplicationController
     end
   end
 
+  # def search
+  #   @employees = params[:query].nil? ? [] : Employee.__elasticsearch__.search(
+  #                                                                         query: {
+  #                                                                           query_string: {
+  #                                                                             query: "#{params[:query]}*"
+  #                                                                           }
+  #                                                                         }
+  #                                                                         ).results
+  # end
+
   def search
-    @employees = params[:q].nil? ? [] : Employee.__elasticsearch__.search(
-                                                                          query: {
-                                                                            query_string: {
-                                                                              query: "#{params[:q]}*"
-                                                                            }
-                                                                          }
-                                                                          ).results
+    @employees = []
+    binding.pry
+    if params[:query].present?
+      @employees = Employee.search(params[:query])
+    end
+    Rails.logger.info "Employee: #{@employees[0]}"
   end
 
   private
