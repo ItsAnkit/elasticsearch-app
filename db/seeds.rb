@@ -1,6 +1,8 @@
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 
+Employee.__elasticsearch__.create_index!(force: true)
+
 departments = []
 ['Eng', 'Sales', 'Med', 'Product', 'Eng', 'Sales', 'Med', 'Product'].each do |dep_name|
     dep = Department.find_or_create_by(name: dep_name)

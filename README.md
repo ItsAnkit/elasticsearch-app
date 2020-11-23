@@ -12,3 +12,6 @@
 ### Run elastic search server
 ``elasticsearch``
 
+### Create index
+``{Model}.__elasticsearch__.create_index!(force: true)``
+
