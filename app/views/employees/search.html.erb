@@ -1,9 +1,9 @@
 <h1>Employee Search</h1>
 
-<%= form_for search_employees_path, method: :get do |f| %>
+<%= form_for search_employees_path, method: :post, remote: true do |f| %>
   <p>
     <%= f.label "Search for" %>
-    <%= text_field_tag :q, params[:q] %>
+    <%= text_field_tag :query, params[:query] %>
     <%= submit_tag "search", name: nil %>
   </p>
 <% end %>
